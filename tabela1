@@ -1,0 +1,73 @@
+/* Criando banco de dados "escola" */
+create database escola;
+
+/*utilizando o banco de dados "escola" */
+use escola;
+
+/* Criando a tabela alunos */
+
+create table alunos (
+    cod_mat int,
+	nome_aluno varchar(50) not null,
+	endereco varchar(50) not null,
+	
+	primary key(cod_mat));
+	
+/* verificando se a tabela alunos foi criada */
+show tables;
+
+/*verificando em detalhes a tabela alunos */
+desc alunos;
+
+/*inserindo um aluno na tabela alunos */
+
+insert into alunos(cod_mat, nome_aluno,endereco)
+    values(1,"Guilherme Campos","rua alfredo,100");
+	
+insert into alunos(cod_mat, nome_aluno,endereco)
+    values(13,"nika no mi","new world");
+	
+insert into alunos(cod_mat, nome_aluno,endereco)
+    values(14,"nathaly rocha","parana,200");
+	
+insert into alunos(cod_mat, nome_aluno,endereco)
+    values(15,"neo automata","rua dos algoros,167");
+	
+insert into alunos(cod_mat, nome_aluno,endereco)
+    values(52,"cleopatra S2","mandaguari,44");
+	
+	
+/* Consultando todos os alunos cadastrados na tabela alunos */
+select *from alunos;
+
+/* Mostrando apenas os nomes dos salunos cadastrados na tabela "alunos" */
+select nome_aluno from alunos;
+
+/* mostrando apenas 2 alunos */
+select * from alunos limit 2;
+
+/* Consultando apenas um aluno especifico na tabela "alunos" */
+
+select * from alunos where cod_mat =2;
+
+/* Mostrando os alunos dentro de uma faixa */
+
+select * from alunos where cod_mat > 12 and cod_mat <52;
+
+/*Mostrando os alunos ordenados pelo nomes */
+
+select * from alunos order by nome_aluno;
+
+/* Mostrando os alunos ordenados pelo nome em ordem decrescente */
+select * from alunos order by nome_aluno desc;
+
+/* deletando um aluno da tabela "alunos" */
+delete from alunos where cod_mat=1;																																																														
+
+/* Atualizando  uma informação de um aluno na tabela "alunos" */
+update alunos set endereco="av atlantica,99" where cod_mat=3;
+
+/* Apagando a tabela "alunos" */
+drop table alunos;
+
+
